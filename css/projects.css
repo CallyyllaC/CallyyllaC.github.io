@@ -1,0 +1,56 @@
+/* CSS Document */
+.prev{
+	text-align: left;
+	display: inline;
+	float: left;
+	margin: auto;
+	transform: translateY(1000%);
+}
+article{
+	height: 100%;
+}
+pre img{
+	width: 100%!important;
+	height: auto!important;
+	border: none!important;
+	border-radius: 0!important;
+	border-radius: 0!important;
+}
+.nxt{
+	text-align: right;
+	display: inline;
+	float: right;
+	margin: auto;
+	transform: translateY(1000%);
+}
+.projectcontainer{
+	width: 100%;
+}
+.child img{
+	border-radius: 10%;
+}
+.info{
+	width: 40%;
+	float: left;
+	display: inline;
+	margin: none;
+	padding: none;
+	text-align: center;
+}
+.code pre{
+	color: white !important;
+	line-height: 1em;
+	word-wrap: break-word;
+	margin: none;
+	padding: none;
+}
+.code{
+	width: 40%;
+	float: right;
+	display: inline;
+	margin: none;
+	padding: none;
+	line-height: normal;
+	text-align: right;
+	color: white !important;
+}

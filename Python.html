@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Portfolio - C#</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Encode+Sans+Expanded|Fjalla+One">
+<link href="css/menubar.css" rel="stylesheet" type="text/css">
+<link href="css/index.css" rel="stylesheet" type="text/css">
+<link href="css/projects.css" rel="stylesheet" type="text/css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/libs/waypoints/jquery.waypoints.min.js"></script>
+<script type="text/javascript" src="js/libs/waypoints/inview.js"></script>
+<script type="text/javascript" src="js/menu.js"></script>
+<script type="text/javascript" src="js/portfoliotemplatePy.js"></script>
+</head>
+
+<body>
+<div class="wrapper">
+  <nav id="menuholder">
+    <div class="menu">
+      <ul>
+        <li>Menu</li>
+        <li></li>
+        <li><a href="index.html">Portfolio Overview</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+		  <li>Projects</li>
+          <li><ul>
+            <li><a href="Cshp.html">C#</a></li>
+            <li><a href="Web.html">Web</a></li>
+            <li><a href="Python.html">Python</a></li>
+            <ul>
+              <li><a href="#ProjectTemplate">Maths Game</a></li>
+              <li><a href="#ProjectTemplatetwo">Turtle Interface</a></li>
+            </ul>
+          </ul>
+        </li>
+        <li><a href="coffee.html">I &lt;3 Coffee</a></li>
+      </ul>
+    </div>
+  </nav>
+  <section class="SectionHolder ct removepadding">
+    <div id="header">
+      <h1 class="headertext">Portfolio</h1>
+    </div>
+  </section>
+  <section class="SectionHolder co">
+    <article id="overview">
+      <div class="child">
+        <h2>Projects</h2>
+        <img alt="Image" src="assets/Folder.png"> </div>
+      <p>Here is the main section of the site, here you will find different projects I have made with useful code snippets and info about what they do</p>
+    </article>
+  </section>
+  <section class="SectionHolder ct">
+    <article id="ProjectTemplate">
+      <div class="child">
+        <div class="buttons">
+          <input id="ProjectTemplateprev" class="prev" type="button" value="Previous">
+          <input id="ProjectTemplatenext" class="nxt" type="button" value="Next">
+        </div>
+        <div class="projectcontainer">
+          <div id="ProjectTemplateinfo" class="info">
+          </div>
+          <div class="code">
+            <pre><code id="ProjectTemplatecode"></code></pre>
+          </div>
+        </div>
+      </div>
+    </article>
+  </section>
+  <section class="SectionHolder co">
+    <article id="ProjectTemplatetwo">
+      <div class="child">
+        <div class="buttons">
+          <input id="ProjectTemplatetwoprev" class="prev" type="button" value="Previous">
+          <input id="ProjectTemplatetwonext" class="nxt" type="button" value="Next">
+        </div>
+        <div id="ProjectTemplatetwoinfo" class="projectcontainer">
+          
+        </div>
+      </div>
+    </article>
+  </section>
+<section class="SectionHolder ct removepadding">
+    <div id="footer" class="footer">
+      <h3>Footer</h3>
+      <br>
+      <ul class="footerlist">
+        <li><a href="https://github.com/CallyyllaC">Github</a></li>
+        <li><a href="mailto:cgainsborough@hotmail.com">Email</a></li>
+        <li>Designed by Callum</li>
+      </ul>
+    </div>
+  </section>
+</div>
+<script type="text/javascript" src="js/libs/\zenscroll/zenscroll-min.js"></script>
+</body>
+</html>
