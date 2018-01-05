@@ -16,11 +16,20 @@ h2{
 	font-family: 'Fjalla One', sans-serif;
 }
 
+@media (min-width: 600px) {
 body{
 	margin: 0;
 	font-size: 1.25em;
 	font-family: 'Encode Sans Expanded', sans-serif;
-}
+	word-wrap: break-word!important;
+	}}
+
+@media (max-width: 599px) {
+body{
+	margin: 0;
+	font-size: 0.7em;
+	font-family: 'Encode Sans Expanded', sans-serif;
+	}}
 
 .co{
 	background: #276CF7;

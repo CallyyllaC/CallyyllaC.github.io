@@ -2,21 +2,19 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Coffee Cup Designer</title>
+<title>Portfolio</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Encode+Sans+Expanded|Fjalla+One">
 <link href="css/menubar.css" rel="stylesheet" type="text/css">
 <link href="css/index.css" rel="stylesheet" type="text/css">
-<link href="css/coffee.css" rel="stylesheet" type="text/css">
+<link href="css/projects.css" rel="stylesheet" type="text/css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript" src="js/libs/waypoints/jquery.waypoints.min.js"></script>
-<script type="text/javascript" src="js/libs/waypoints/inview.js"></script>
 <script type="text/javascript" src="js/menu.js"></script>
-<script type="text/javascript" src="js/coffee.js"></script>
 </head>
+
 <body>
 <div class="wrapper">
     <div id="menubutton">Menu</div>
-    <nav id="menuholder">
+  <nav id="menuholder">
     <div class="menu">
       <ul>
         <li>Menu</li>
@@ -27,6 +25,10 @@
           <li><ul>
             <li><a href="Cshp.html">C#</a></li>
             <li><a href="Web.html">Web</a></li>
+            <ul>
+              <li><a href="#ProjectTemplate">PHP Website</a></li>
+              <li><a href="#ProjectTemplatetwo">Mobile App</a></li>
+            </ul>
             <li><a href="Python.html">Python</a></li>
           </ul>
         </li>
@@ -36,31 +38,18 @@
     </div>
   </nav>
   <section class="SectionHolder ct removepadding">
-    <div id="header" class="header">
+    <div id="header">
       <h1 class="headertext">Portfolio</h1>
     </div>
   </section>
   <section class="SectionHolder co">
-    <article id="overview" class="overview">
+    <article id="overview">
       <div class="child">
-        <h2>Coffee cup designer</h2>
-        <p>As previously stated in my About section I declared that I do love coffee, and that is why I have build this, it alows you to draw and design your own coffee mug to drink out of and help you through long sleepless nights of programming and bug fixing.</p>
-      </div>
+        <h2>Demo</h2></div>
+      <p><iframe allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen" height="100%" src="https://www.youtube.com/embed/JpBZweaw5pM"></iframe></p>
     </article>
   </section>
-  <section class="SectionHolder ct">
-    <div id="canvasholder" name="canvasholder"></div>
-    <div id="buttonholder">
-      <input type="button" value="Clear" id="clear">
-      Colour:
-      <input type="color" name="colour" value="#000000" id="color">
-      Text Size:
-      <input type="text" name="size" value="5" id="size">
-      <input type="button" value="Save" id="save">
-      <input type="button" value="Load" id="load">
-    </div>
-  </section>
-  <section class="SectionHolder co removepadding">
+<section class="SectionHolder ct removepadding">
     <div id="footer" class="footer">
       <h3>Footer</h3>
       <br>
