@@ -1,5 +1,48 @@
 @charset "utf-8";
 /* CSS Document */
+
+@media (max-width: 599px) {
+#menubutton{
+	position: fixed;
+	left: 0;
+	top: 0;
+	display: block;
+    z-index: 2000;
+    background-color: #91B5FF;
+	color: #FFFFFF;
+	margin: 1em;
+	padding: 1em;
+}
+
+.menu {
+    list-style-type: none;
+	margin: 0;
+    margin-top: 2em;
+    padding: 0;
+    width: 100%;
+    background-color: #00297C;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+	color: #D1E0FF;
+    z-index: 1000;
+}
+
+.menu li a {
+    display: block;
+	color: #91B5FF;
+    padding: 8px 0px;
+    text-decoration: none;
+}
+
+.menu li a:hover:not(.active) {
+    background-color: #276CF7;
+	color: #D1E0FF;
+}
+	
+}
+
+@media (min-width: 600px) {
 .menu ul{
 	list-style-type: none;
 }
@@ -27,4 +70,12 @@
 .menu li a:hover:not(.active) {
     background-color: #276CF7;
 	color: #D1E0FF;
+}
+#menubutton{
+	position: absolute;
+	left: 0;
+	top: 0;
+	display: none;
+    z-index: 2000;
+}	
 }

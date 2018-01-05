@@ -47,7 +47,12 @@ body{
 
 .headertext{
 	margin: auto;
-	text-align: left;
+	text-align: center;
+}
+
+.header{
+	margin: auto;
+	text-align: center;
 }
 
 .removepadding{

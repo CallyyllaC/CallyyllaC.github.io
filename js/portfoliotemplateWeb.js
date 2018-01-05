@@ -128,7 +128,7 @@ function Templatethree(num) {
 			$("#ProjectTemplatethreeprev").fadeOut(500);
 			break;
 		case 1:
-			info.innerHTML = '<h2>Custom Wallpaper</h2><iframe width="100%" height="100%" src="https://www.youtube.com/embed/znaBi60_wkU"></iframe>';
+			info.innerHTML = '<h2>Custom Wallpaper</h2><p>I wanted a a wallpaper that i could use to see the date and time easilly and in a font that wasnt boring.</p>';
 			code.innerHTML = 'var today = new Date();\ndocument.getElementById("Time").innerHTML = "Time: " + today.getHours() + ":" + checkTime(today.getMinutes()) + ":" + checkTime(today.getSeconds());\ndocument.getElementById("Date").innerHTML = "Date: " + today.getDay() + " " + checkMonth(today.getMonth()) + " " + today.getFullYear();\nvar t = setTimeout(startTime, 500);';
 			$("#ProjectTemplatethreenext").fadeOut(500);
 			$("#ProjectTemplatethreeprev").fadeIn(500);
