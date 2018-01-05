@@ -55,13 +55,13 @@ body{
 }
 
 .headertext{
-	margin: auto;
-	text-align: center;
+	margin: auto!important;
+	text-align: center!important;
 }
 
 .header{
-	margin: auto;
-	text-align: center;
+	margin: auto!important;
+	text-align: center!important;
 }
 
 .removepadding{
