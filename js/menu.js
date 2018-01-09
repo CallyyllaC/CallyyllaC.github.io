@@ -21,6 +21,7 @@ $(document).ready(function () {
 		});
 	}));
 	
+	//add event listener for menu button (disolays only on mobile)
 	var button = document.getElementById("menubutton");
 	button.addEventListener("click", (function () {
 		$("#menuholder").toggle(500);

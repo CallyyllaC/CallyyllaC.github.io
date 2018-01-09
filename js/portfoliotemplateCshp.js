@@ -1,4 +1,5 @@
 // JavaScript Document
+//declare variables
 var temp = 0,
 	temp2 = 0,
 	temp3 = 0,
@@ -6,9 +7,11 @@ var temp = 0,
 	temp5 = 0,
 	temp6 = 0;
 
-
+//on page load
 window.onload = function () {
 
+//Add event listeners for the buttons
+//First Section
 	var TemplateNext = document.getElementById("ProjectTemplatenext");
 	TemplateNext.addEventListener("click", (function () {
 		console.log("clicked next");
@@ -20,6 +23,7 @@ window.onload = function () {
 		Template(-1);
 	}));
 
+//Second Section
 	var TemplateTwoNext = document.getElementById("ProjectTemplatetwonext");
 	TemplateTwoNext.addEventListener("click", (function () {
 		console.log("clicked next");
@@ -31,6 +35,7 @@ window.onload = function () {
 		Templatetwo(-1);
 	}));
 
+//third Section
 	var TemplateThreeNext = document.getElementById("ProjectTemplatethreenext");
 	TemplateThreeNext.addEventListener("click", (function () {
 		console.log("clicked next");
@@ -42,6 +47,7 @@ window.onload = function () {
 		Templatethree(-1);
 	}));
 
+//fourth Section
 	var TemplateFourNext = document.getElementById("ProjectTemplatefournext");
 	TemplateFourNext.addEventListener("click", (function () {
 		console.log("clicked next");
@@ -53,6 +59,7 @@ window.onload = function () {
 		Templatefour(-1);
 	}));
 
+//fith Section
 	var TemplateFiveNext = document.getElementById("ProjectTemplatefivenext");
 	TemplateFiveNext.addEventListener("click", (function () {
 		console.log("clicked next");
@@ -64,6 +71,7 @@ window.onload = function () {
 		Templatefive(-1);
 	}));
 
+//sixth Section
 	var TemplateSixNext = document.getElementById("ProjectTemplatesixnext");
 	TemplateSixNext.addEventListener("click", (function () {
 		console.log("clicked next");
@@ -75,6 +83,7 @@ window.onload = function () {
 		Templatesix(-1);
 	}));
 
+//first run each section
 	Template(0);
 	Templatetwo(0);
 	Templatethree(0);
@@ -84,24 +93,28 @@ window.onload = function () {
 };
 
 function Template(num) {
-
+//look at if it is going to the next or back one
 	temp = temp + num;
-
+//get variables
 	var info = document.getElementById("ProjectTemplateinfo");
 	var code = document.getElementById("ProjectTemplatecode");
-
+//insert html replacing previous on button press relating to if the button is going forward or back
 	switch (temp) {
 		case 0:
 			info.innerHTML = '<h2>Mastermind</h2><p>This project is an assignment I did back at college when learning about object oriented coding and C#.</p>';
 			code.innerHTML = '<img src="assets/MastermindSplash.png" alt="Mastermind Image">';
+			//remove button
 			$("#ProjectTemplateprev").fadeOut(500);
+			//add button
 			$("#ProjectTemplatenext").fadeIn(500);
 
 			break;
 		case 1:
 			info.innerHTML = '<h2>Mastermind</h2><p>This is a console versoion of the classic game Mastermind</p>';
 			code.innerHTML = '<img src="assets/MastermindGame.png" alt="Mastermind Image">';
+			//add button
 			$("#ProjectTemplateprev").fadeIn(500);
+			//remove button
 			$("#ProjectTemplatenext").fadeOut(500);
 			break;
 		default:
@@ -110,21 +123,23 @@ function Template(num) {
 }
 
 function Templatetwo(num) {
-
+//look at if it is going to the next or back one
 	temp2 = temp2 + num;
-
+//get variables
 	var info = document.getElementById("ProjectTemplatetwoinfo");
 	var code = document.getElementById("ProjectTemplatetwocode");
-
+//insert html replacing previous on button press relating to if the button is going forward or back
 	switch (temp2) {
 		case 0:
 			info.innerHTML = '<h2>Discord Bot</h2><p>This was a personal project I started to help teach myself more complex C#, I also wanted a discord bot that ticked every box in my head, without realising how much work it would really be, this is the 3rd rewrite of the bot and has already been partially broken by an api update</p>';
 			code.innerHTML = '';
+			//remove button
 			$("#ProjectTemplatetwoprev").fadeOut(500);
 			break;
 		case 1:
 			info.innerHTML = "<h2>Discord Bot</h2><p>This project includes:</p><ul><li><strong>User Profile System</strong></li><li>User Currency System</li><li>User Level Up System</li><li>Global Reactions</li><li>User-Based Reactions</li><li>DuckDuckGo Search</li><li>Google Search</li><li>Filtered Words</li><li>Banned Letter of the day (Don't ask, it was what my guild wanted, disabled by default)</li><li>Bot Personas</li><li>Game Simulation</li><li>Forwarding Direct Messages</li><li>Get info on Guild/Role/User/etc.</li><li>Bot Blacklist</li></ul>";
 			code.innerHTML = 'Image avatarimg = await Program.global.ByteArrayToImageAsync(Avatar);\nbyte[] imgArr = File.ReadAllBytes($"C:\\DiscordBot\\Resources\\ProfileTemp.png");\nusing (MemoryStream inStream = new MemoryStream(imgArr))\n{\nusing (var newBitmap = new Bitmap(inStream))\n{\nusing (Graphics graphics = Graphics.FromImage(newBitmap))\n{\nusing (Font arialFont = new Font("Arial", 18))\n{\nFont arialFont2 = new Font("Arial", 28);\nRectangleF Rectangle1 = new RectangleF(0, 350, 858, 40);\nRectangleF Rectangle2 = new RectangleF(0, 390, 858, 30);\nRectangleF Rectangle3 = new RectangleF(0, 420, 858, 30);\nRectangleF Rectangle4 = new RectangleF(0, 450, 858, 30);\ngraphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;\ngraphics.DrawString(UserName, arialFont2, Brushes.Black, Rectangle1);\ngraphics.DrawString("Level: " + user.Level, arialFont, Brushes.Black, Rectangle2);\ngraphics.DrawString("Total XP: " + user.XP, arialFont, Brushes.Black, Rectangle3);\ngraphics.DrawString("Currency: " + user.Currency, arialFont, Brushes.Black, Rectangle4);\ngraphics.DrawImage(avatarimg, 525, 250);';
+			//add button
 			$("#ProjectTemplatetwoprev").fadeIn(500);
 			break;
 		case 2:
@@ -174,11 +189,13 @@ function Templatetwo(num) {
 		case 13:
 			info.innerHTML = "<h2>Discord Bot</h2><p>This project includes:</p><ul><li>User Profile System</li><li>User Currency System</li><li>User Level Up System</li><li>Global Reactions</li><li>User-Based Reactions</li><li>DuckDuckGo Search</li><li>Google Search</li><li>Filtered Words</li><li>Banned Letter of the day (Don't ask, it was what my guild wanted, disabled by default)</li><li>Bot Personas</li><li>Game Simulation</li><li>Forwarding Direct Messages</li><li><strong>Get info on Guild/Role/User/etc.</strong></li><li>Bot Blacklist</li></ul>";
 			code.innerHTML = 'var userInfo = Context.Guild;\nstring img = userInfo.SplashUrl;\nstring img2 = userInfo.IconUrl;\nstring nm = $"{DateTime.Now.Minute.ToString()}{DateTime.Now.Second.ToString()}{DateTime.Now.Millisecond.ToString()}";\nstring nm2 = $"2{DateTime.Now.Minute.ToString()}{DateTime.Now.Second.ToString()}{DateTime.Now.Millisecond.ToString()}";\nif (img != null) { File.WriteAllBytes($"C:\\DiscordBot\\Resources\\Tmp{nm}.png", await Program.global.PullImageFromWebAsync(img)); }\nif (img2 != null) { File.WriteAllBytes($"C:\\DiscordBot\\Resources\\Tmp{nm2}.png", await Program.global.PullImageFromWebAsync(img2)); }\nawait Context.Channel.SendMessageAsync($"Displaying information about the Current Server \n Server Name: {userInfo.Name} \n Server ID: {userInfo.Id} \n Server was created: {userInfo.CreatedAt} \n Current voice region: {userInfo.VoiceRegionId} \n Afk Channel: {userInfo.AFKChannelId} with timeout: {userInfo.AFKTimeout}");';
+			//add button
 			$("#ProjectTemplatetwonext").fadeIn(500);
 			break;
 		case 14:
 			info.innerHTML = "<h2>Discord Bot</h2><p>This project includes:</p><ul><li>User Profile System</li><li>User Currency System</li><li>User Level Up System</li><li>Global Reactions</li><li>User-Based Reactions</li><li>DuckDuckGo Search</li><li>Google Search</li><li>Filtered Words</li><li>Banned Letter of the day (Don't ask, it was what my guild wanted, disabled by default)</li><li>Bot Personas</li><li>Game Simulation</li><li>Forwarding Direct Messages</li><li>Get info on Guild/Role/User/etc.</li><li><strong>Bot Blacklist</strong></li></ul>";
 			code.innerHTML = 'User user = await GetUserAsync(message);\nif (user.Blacklisted) { return; }';
+			//remove button
 			$("#ProjectTemplatetwonext").fadeOut(500);
 			break;
 		default:
@@ -187,21 +204,23 @@ function Templatetwo(num) {
 }
 
 function Templatethree(num) {
-
+//look at if it is going to the next or back one
 	temp3 = temp3 + num;
-
+//get variables
 	var info = document.getElementById("ProjectTemplatethreeinfo");
 	var code = document.getElementById("ProjectTemplatethreecode");
-
+//insert html replacing previous on button press relating to if the button is going forward or back
 	switch (temp3) {
 		case 0:
 			info.innerHTML = '<h2>Rich Presence Changer</h2><p>This was a personal project I started to allow user entered custom Rich Presence on your discord profile because as far as I am aware there was only one program which did this when this was initially made, and it was a python console application, so clearly there was room in the market for a GUI version</p>';
 			code.innerHTML = '';
+			//remove button
 			$("#ProjectTemplatethreeprev").fadeOut(500);
 			break;
 		case 1:
 			info.innerHTML = '<h2>Rich Presence Changer</h2><p>This project includes:</p><ul><li><strong>5 Preset configs</strong></li><li>Up to 10 custom configs</li><li>Automatically checks config file for updates</li><li>Graphics!</li></ul>';
 			code.innerHTML = '<img src="assets/DRPDefault.png" alt="Rich Presence Image">';
+			//add button
 			$("#ProjectTemplatethreeprev").fadeIn(500);
 			break;
 		case 2:
@@ -215,11 +234,13 @@ function Templatethree(num) {
 		case 4:
 			info.innerHTML = '<h2>Rich Presence Changer</h2><p>This project includes:</p><ul><li>5 Preset configs</li><li>Up to 10 custom configs</li><li>Automatically checks config file for updates</li><li><strong>Graphics!</strong></li></ul>';
 			code.innerHTML = '<img src="assets/DRPDefault.png" alt="Rich Presence Image">';
+			//add button
 			$("#ProjectTemplatethreenext").fadeIn(500);
 			break;
 		case 5:
 			info.innerHTML = '<h2>Rich Presence Changer</h2><p>I use this application every day so it is constantly being worked on and improved</p>';
 			code.innerHTML = '';
+			//remove button
 			$("#ProjectTemplatethreenext").fadeOut(500);
 			break;
 		default:
@@ -228,20 +249,24 @@ function Templatethree(num) {
 }
 
 function Templatefour(num) {
-
+//look at if it is going to the next or back one
 	temp4 = temp4 + num;
-
+//get variables
 	var info = document.getElementById("ProjectTemplatefourinfo");
-
+//insert html replacing previous on button press relating to if the button is going forward or back
 	switch (temp4) {
 		case 0:
 			info.innerHTML = '<h2>App Launcher</h2><p>This was a personal project I made to automatically run some programs I have idle from time to time</p><p>This is more of a soundation project I use to quickly edit and build ontop of for custom needs</p>';
+			//add button
 			$("#ProjectTemplatefournext").fadeIn(500);
+			//remove button
 			$("#ProjectTemplatefourprev").fadeOut(500);
 			break;
 		case 1:
 			info.innerHTML = '<h2>App Launcher</h2><iframe allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen" height="100%" src="https://www.youtube.com/embed/G4QrA4N2Ulk"></iframe>';
+			//remove button
 			$("#ProjectTemplatefournext").fadeOut(500);
+			//add button
 			$("#ProjectTemplatefourprev").fadeIn(500);
 			break;
 		default:
@@ -250,19 +275,22 @@ function Templatefour(num) {
 }
 
 function Templatefive(num) {
+//look at if it is going to the next or back one
 	temp5 = temp5 + num;
-
+//get variables
 	var info = document.getElementById("ProjectTemplatefiveinfo");
 	var code = document.getElementById("ProjectTemplatefivecode");
-
+//insert html replacing previous on button press relating to if the button is going forward or back
 	switch (temp5) {
 		case 0:
 			info.innerHTML = '<h2>KF2 Tool</h2><p>This was a personal project I started when first getting into GUI apps, and was currently really annoyed at how difficult KF2 servers were to keep managed and updated, putting the two together this is what I finally came up with. Currently unfinished due to not being able to host servers at my current accomidation the project is usable, but bugs havnt not been tested for and there are still features to add/improve</p>';
+			//remove button
 			$("#ProjectTemplatefiveprev").fadeOut(500);
 			break;
 		case 1:
 			info.innerHTML = '<h2>KF2 Tool</h2><p>This project includes:</p><ul><li><strong>Displays Latest KF2 News</strong></li><li>Automatically Updates the server files</li><li>Browse Steam Workshop and add files within the program</li><li>Manage Maps</li><li>Manage Muts</li><li>Manage Actors</li><li>Features (Server):</li><li><ul><li>Ports</li><li>Web Admin</li><li>Game Name</li><li>Game Password</li><li>Max Players</li><li>Difficulty</li><li>Map</li><li>Length</li><li>GameMode</li><li>Friendly Fire</li><li>Collision</li><li>Pickups</li><li>VoteKick</li></ul></li><li>Features (Client):</li><li><ul><li>Performance options</li><li>Start game with selected elements</li><li>Max Dead bodies editor (setting to 0 can be used to "cheat", setting high can make the game look cooler)</li></ul></li></ul>';
 			code.innerHTML = '<img src="assets/KF2Menu.png" alt="KF2 Tool">';
+			//add button
 			$("#ProjectTemplatefivenext").fadeIn(500);
 			break;
 		case 2:
@@ -288,11 +316,13 @@ function Templatefive(num) {
 		case 7:
 			info.innerHTML = '<h2>KF2 Tool</h2><p>This project includes:</p><ul><li>Displays Latest KF2 News</li><li>Automatically Updates the server files</li><li>Browse Steam Workshop and add files within the program</li><li>Manage Maps</li><li>Manage Muts</li><li>Manage Actors</li><li><strong>Features (Server):</li><li><ul><li>Ports</li><li>Web Admin</li><li>Game Name</li><li>Game Password</li><li>Max Players</li><li>Difficulty</li><li>Map</li><li>Length</li><li>GameMode</li><li>Friendly Fire</li><li>Collision</li><li>Pickups</li><li>VoteKick</li></ul></strong></li><li>Features (Client):</li><li><ul><li>Performance options</li><li>Start game with selected elements</li><li>Max Dead bodies editor (setting to 0 can be used to "cheat", setting high can make the game look cooler)</li></ul></li></ul>';
 			code.innerHTML = '<img src="assets/KF2Mut.png" alt="KF2 Tool">';
+			//add button
 			$("#ProjectTemplatefiveprev").fadeIn(500);
 			break;
 		case 8:
 			info.innerHTML = '<h2>KF2 Tool</h2><p>This project includes:</p><ul><li>Displays Latest KF2 News</li><li>Automatically Updates the server files</li><li>Browse Steam Workshop and add files within the program</li><li>Manage Maps</li><li>Manage Muts</li><li>Manage Actors</li><li>Features (Server):</li><li><ul><li>Ports</li><li>Web Admin</li><li>Game Name</li><li>Game Password</li><li>Max Players</li><li>Difficulty</li><li>Map</li><li>Length</li><li>GameMode</li><li>Friendly Fire</li><li>Collision</li><li>Pickups</li><li>VoteKick</li></ul></li><li><strong>Features (Client):</li><li><ul><li>Performance options</li><li>Start game with selected elements</li><li>Max Dead bodies editor (setting to 0 can be used to "cheat", setting high can make the game look cooler)</li></ul></strong></li></ul>';
 			code.innerHTML = '<img src="assets/KF2Client.png" alt="KF2 Tool">';
+			//remove button
 			$("#ProjectTemplatefivenext").fadeOut(500);
 			break;
 		default:
@@ -301,19 +331,24 @@ function Templatefive(num) {
 }
 
 function Templatesix(num) {
+//look at if it is going to the next or back one
 	temp6 = temp6 + num;
-
+//get variables
 	var info = document.getElementById("ProjectTemplatesixinfo");
-
+//insert html replacing previous on button press relating to if the button is going forward or back
 	switch (temp6) {
 		case 0:
 			info.innerHTML = '<h2>KF2 Map Name Gen</h2><p>This was a personal project I made to before KF2 Tool</p><p>the functionality of this app is included and done better using KF2 tool, making this app redundant, however it is still small and it still works as intended without the extra features of KF2 Tool</p>';
+			//add button
 			$("#ProjectTemplatesixnext").fadeIn(500);
+			//remove button
 			$("#ProjectTemplatesixprev").fadeOut(500);
 			break;
 		case 1:
 			info.innerHTML = '<h2>KF2 Map Name Gen</h2><iframe allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen" height="100%" src="https://www.youtube.com/embed/AlH2LPDsXKk"></iframe>';
+			//remove button
 			$("#ProjectTemplatesixnext").fadeOut(500);
+			//add button
 			$("#ProjectTemplatesixprev").fadeIn(500);
 			break;
 		default:

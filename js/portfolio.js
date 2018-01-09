@@ -1,11 +1,10 @@
 // JavaScript Document
+//declare variables
 var cshpnum = 0, webnum = 0, pynum = 0;
 var cshpimg, webimg, pyimg;
+var Cshptyped, Webtyped, Pytyped;
 
-var Cshptyped;
-var Webtyped;
-var Pytyped;
-
+//declare the options for the typing js lib
 var pyoptions = {
 		strings: ["Undefined"],
 		startDelay: 300,
@@ -25,8 +24,12 @@ var cshpoptions = {
 		loop: false
 	};
 
+//on page load
 window.onload = function () {
 
+
+//Add event listeners for the buttons
+//First Section
 	cshpimg = document.getElementById('cshpimg');
 	var cshpnext = document.getElementById('cshpnext');
 	cshpnext.addEventListener("click", (function () {
@@ -39,6 +42,7 @@ window.onload = function () {
 		cyclecshp(-1);
 	}));
 
+//Second Section
 	webimg = document.getElementById('webimg');
 	var webnext = document.getElementById('webnext');
 	webnext.addEventListener("click", (function () {
@@ -49,6 +53,7 @@ window.onload = function () {
 		cycleweb(-1);
 	}));
 
+//third Section
 	pyimg = document.getElementById('pyimg');
 	var pynext = document.getElementById('pynext');
 	pynext.addEventListener("click", (function () {
@@ -59,6 +64,7 @@ window.onload = function () {
 		cyclepy(-1);
 	}));
 	
+//first run each section
 	cyclecshp(0);
 	cycleweb(0);
 	cyclepy(0);
@@ -68,8 +74,9 @@ window.onload = function () {
 };
 
 function cyclecshp(num) {
+//look at if it is going to the next or back one
 	cshpnum = cshpnum + num;
-
+//insert html replacing previous on button press relating to if the button is going forward or back
 	switch (cshpnum) {
 		case -1:
 			cshpnum = 5;
@@ -117,12 +124,14 @@ function cyclecshp(num) {
 			cshpnum = 0;
 			break;
 	}
+//Type out the new title
 	CshpTypeUpdate();
 }
 
 function cycleweb(num) {
+//look at if it is going to the next or back one
 	webnum = webnum + num;
-
+//insert html replacing previous on button press relating to if the button is going forward or back
 	switch (webnum) {
 		case -1:
 			webnum = 1;
@@ -155,12 +164,14 @@ function cycleweb(num) {
 			webnum = 0;
 			break;
 	}
+//Type out the new title
 	WebTypeUpdate();
 }
 
 function cyclepy(num) {
+//look at if it is going to the next or back one
 	pynum = pynum + num;
-
+//insert html replacing previous on button press relating to if the button is going forward or back
 	switch (pynum) {
 		case -1:
 			pynum = 1;
@@ -185,26 +196,36 @@ function cyclepy(num) {
 			pyimg = document.getElementById('pyimg');
 			break;
 	}
+//Type out the new title
 	PyTypeUpdate();
 }
 
 function CshpTypeUpdate() {
+//Re get the variable since it has changed
 	var reget = document.getElementById('cshptitle');
+//delete it
 	reget.outerHTML = '<p id="cshptitle"></p>';
+//type
 	Cshptyped = new Typed('#cshptitle',cshpoptions);
 	console.log('Changed C# Title');
 }
 
 function WebTypeUpdate() {
+//Re get the variable since it has changed
 	var reget = document.getElementById('webtitle');
+//delete it
 	reget.outerHTML = '<p id="webtitle"></p>';
+//type
 	Webtyped = new Typed('#webtitle',weboptions);
 	console.log('Changed C# Title');
 }
 
 function PyTypeUpdate() {
+//Re get the variable since it has changed
 	var reget = document.getElementById('pytitle');
+//delete it
 	reget.outerHTML = '<p id="pytitle"></p>';
+//type
 	Pytyped = new Typed('#pytitle',pyoptions);
 	console.log('Changed C# Title');
 }

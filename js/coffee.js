@@ -1,9 +1,9 @@
 // JavaScript Document
-var canvas, colour, button, size, load, save, body, drawingpad;
-var my_context;
-var lastX, lastY;
+//declare variables
+var canvas, colour, button, size, load, save, body, drawingpad, my_context, lastX, lastY;
 var mousePressed = false;
-//Onload event
+
+//on page load
 window.onload = function () {
 	init();
 };
@@ -117,6 +117,7 @@ function Save() {
 	//log
 	console.log("save start");
 
+	//save to local storage
 	localStorage.setItem("colour", colour.value);
 	localStorage.setItem("size", size.value);
 	localStorage.setItem("canvas", canvas.toDataURL());
@@ -128,22 +129,25 @@ function Save() {
 function Load() {
 	//log
 	console.log("load start");
-	
-		colour.value = localStorage.getItem("colour");
-		size.value = localStorage.getItem("size");
 
-		//draw image
-		var image = new Image();
-		image.src = localStorage.getItem("canvas");
-		image.onload = function () {
-			my_context.drawImage(image, 0, 0, canvas.width, canvas.height);
+	//load from local storage
+	colour.value = localStorage.getItem("colour");
+	size.value = localStorage.getItem("size");
+
+	//draw image
+	var image = new Image();
+	image.src = localStorage.getItem("canvas");
+	image.onload = function () {
+		my_context.drawImage(image, 0, 0, canvas.width, canvas.height);
 		console.log("load success");
-		};
+	};
+	
 	//log
 	console.log("load end");
 }
 
 function Clear() {
+	//clear
 	my_context.clearRect(0, 0, canvas.width, canvas.height);
 	//draw image
 	var image = new Image();
