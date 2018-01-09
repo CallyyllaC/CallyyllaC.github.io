@@ -14,7 +14,6 @@ pre img{
 	height: auto!important;
 	border: none!important;
 	border-radius: 0!important;
-	border-radius: 0!important;
 }
 .nxt{
 	text-align: right;
@@ -33,23 +32,17 @@ pre img{
 	width: 40%;
 	float: left;
 	display: inline;
-	margin: none;
-	padding: none;
 	text-align: center;
 }
 .code pre{
 	color: white !important;
 	line-height: 1em;
 	word-wrap: break-word;
-	margin: none;
-	padding: none;
 }
 .code{
 	width: 40%;
 	float: right;
 	display: inline;
-	margin: none;
-	padding: none;
 	line-height: normal;
 	text-align: right;
 	color: white !important;
