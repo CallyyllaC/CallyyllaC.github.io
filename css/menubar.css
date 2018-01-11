@@ -1,37 +1,38 @@
 @charset "utf-8";
 /* CSS Document */
 
+/* Mobile Site */
 @media (max-width: 599px) {
 #menubutton{
+    z-index: 2000;
 	position: fixed;
+	display: block;
 	left: 0;
 	top: 0;
-	display: block;
-    z-index: 2000;
-    background-color: #91B5FF;
-	color: #FFFFFF;
 	margin: 1em;
 	padding: 1em;
+    background-color: #91B5FF;
+	color: #FFFFFF;
 }
 
 .menu {
+    z-index: 1000;
+    position: fixed;
     list-style-type: none;
-	margin: 0;
-    margin-top: 2em;
-    padding: 0;
     width: 100%;
     background-color: #00297C;
-    position: fixed;
     height: 100%;
     overflow: auto;
 	color: #D1E0FF;
-    z-index: 1000;
+	margin: 0;
+    margin-top: 2em;
+    padding: 0;
 }
 
 .menu li a {
     display: block;
 	color: #91B5FF;
-    padding: 8px 0px;
+    padding: 9px 0px;
     text-decoration: none;
 }
 
@@ -42,6 +43,7 @@
 	
 }
 
+/* Desktop Site */
 @media (min-width: 600px) {
 .menu ul{
 	list-style-type: none;
@@ -63,7 +65,7 @@
 .menu li a {
     display: block;
 	color: #91B5FF;
-    padding: 8px 0px;
+    padding: 9px 0px;
     text-decoration: none;
 }
 

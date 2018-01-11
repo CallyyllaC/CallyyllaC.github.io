@@ -35,6 +35,7 @@
 	margin: auto;
 	transform: translateY(1000%);
 }
+/* JavaScript lib typing cursor */
 .typed-cursor {
 	display: none;
 }
