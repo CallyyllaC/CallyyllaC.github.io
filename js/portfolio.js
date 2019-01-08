@@ -1,10 +1,12 @@
 // JavaScript Document
-//declare variables
-var cshpnum = 0, webnum = 0, pynum = 0;
-var cshpimg, webimg, pyimg;
-var Cshptyped, Webtyped, Pytyped;
+var cshpnum = 0, cppnum = 0, webnum = 0, pynum = 0;
+var cppimg, cshpimg, webimg, pyimg;
 
-//declare the options for the typing js lib
+var Cshptyped;
+var Cpptyped;
+var Webtyped;
+var Pytyped;
+
 var pyoptions = {
 		strings: ["Undefined"],
 		startDelay: 300,
@@ -23,13 +25,15 @@ var cshpoptions = {
 		typeSpeed: 50,
 		loop: false
 	};
+var cppoptions = {
+		strings: ["Undefined"],
+		startDelay: 300,
+		typeSpeed: 50,
+		loop: false
+	};
 
-//on page load
 window.onload = function () {
 
-
-//Add event listeners for the buttons
-//First Section
 	cshpimg = document.getElementById('cshpimg');
 	var cshpnext = document.getElementById('cshpnext');
 	cshpnext.addEventListener("click", (function () {
@@ -41,8 +45,19 @@ window.onload = function () {
 		console.log("clicked prev");
 		cyclecshp(-1);
 	}));
+	
+	cppimg = document.getElementById('cppimg');
+	var cppnext = document.getElementById('cppnext');
+	cppnext.addEventListener("click", (function () {
+		console.log("clicked next");
+		cyclecpp(1);
+	}));
+	var cppprev = document.getElementById('cppprev');
+	cppprev.addEventListener("click", (function () {
+		console.log("clicked prev");
+		cyclecpp(-1);
+	}));
 
-//Second Section
 	webimg = document.getElementById('webimg');
 	var webnext = document.getElementById('webnext');
 	webnext.addEventListener("click", (function () {
@@ -53,7 +68,6 @@ window.onload = function () {
 		cycleweb(-1);
 	}));
 
-//third Section
 	pyimg = document.getElementById('pyimg');
 	var pynext = document.getElementById('pynext');
 	pynext.addEventListener("click", (function () {
@@ -64,7 +78,7 @@ window.onload = function () {
 		cyclepy(-1);
 	}));
 	
-//first run each section
+	cyclecpp(0);
 	cyclecshp(0);
 	cycleweb(0);
 	cyclepy(0);
@@ -74,9 +88,35 @@ window.onload = function () {
 };
 
 function cyclecshp(num) {
-//look at if it is going to the next or back one
+	cppnum = cppnum + num;
+
+	switch (cppnum) {
+		case -1:
+			cppnum = 0;
+			cppoptions.strings = ['Where's Wally'];
+			cppimg.innerHTML = '<a href="Cpp.html#ProjectTemplateone"><img alt="c++" src="assets/FindWally.png"></a><p><a href="https://github.com/CallyyllaC/x">Github link</a></p>';
+			cppimg = document.getElementById('cppimg');
+			break;
+		case 0:
+			cppoptions.strings = ['Where's Wally'];
+			cppimg.innerHTML = '<a href="Cpp.html#ProjectTemplateone"><img alt="c++" src="assets/FindWally.png"></a><p><a href="https://github.com/CallyyllaC/x">Github link</a></p>';
+			cppimg = document.getElementById('cppimg');
+			break;
+		case 1:
+			cppnum = 0;
+			cppoptions.strings = ['Where's Wally'];
+			cppimg.innerHTML = '<a href="Cpp.html#ProjectTemplateone"><img alt="c++" src="assets/FindWally.png"></a><p><a href="https://github.com/CallyyllaC/x">Github link</a></p>';
+			cppimg = document.getElementById('cppimg');
+			break;
+		default:
+			cppnum = 0;
+			break;
+	}
+	CppTypeUpdate();
+}
+function cyclecshp(num) {
 	cshpnum = cshpnum + num;
-//insert html replacing previous on button press relating to if the button is going forward or back
+
 	switch (cshpnum) {
 		case -1:
 			cshpnum = 5;
@@ -124,14 +164,12 @@ function cyclecshp(num) {
 			cshpnum = 0;
 			break;
 	}
-//Type out the new title
 	CshpTypeUpdate();
 }
 
 function cycleweb(num) {
-//look at if it is going to the next or back one
 	webnum = webnum + num;
-//insert html replacing previous on button press relating to if the button is going forward or back
+
 	switch (webnum) {
 		case -1:
 			webnum = 1;
@@ -164,14 +202,12 @@ function cycleweb(num) {
 			webnum = 0;
 			break;
 	}
-//Type out the new title
 	WebTypeUpdate();
 }
 
 function cyclepy(num) {
-//look at if it is going to the next or back one
 	pynum = pynum + num;
-//insert html replacing previous on button press relating to if the button is going forward or back
+
 	switch (pynum) {
 		case -1:
 			pynum = 1;
@@ -196,36 +232,33 @@ function cyclepy(num) {
 			pyimg = document.getElementById('pyimg');
 			break;
 	}
-//Type out the new title
 	PyTypeUpdate();
 }
 
 function CshpTypeUpdate() {
-//Re get the variable since it has changed
 	var reget = document.getElementById('cshptitle');
-//delete it
 	reget.outerHTML = '<p id="cshptitle"></p>';
-//type
 	Cshptyped = new Typed('#cshptitle',cshpoptions);
 	console.log('Changed C# Title');
 }
 
+function CppTypeUpdate() {
+	var reget = document.getElementById('cpptitle');
+	reget.outerHTML = '<p id="cpptitle"></p>';
+	Cshptyped = new Typed('#cpptitle',cppoptions);
+	console.log('Changed Cpp Title');
+}
+
 function WebTypeUpdate() {
-//Re get the variable since it has changed
 	var reget = document.getElementById('webtitle');
-//delete it
 	reget.outerHTML = '<p id="webtitle"></p>';
-//type
 	Webtyped = new Typed('#webtitle',weboptions);
 	console.log('Changed C# Title');
 }
 
 function PyTypeUpdate() {
-//Re get the variable since it has changed
 	var reget = document.getElementById('pytitle');
-//delete it
 	reget.outerHTML = '<p id="pytitle"></p>';
-//type
 	Pytyped = new Typed('#pytitle',pyoptions);
 	console.log('Changed C# Title');
 }
