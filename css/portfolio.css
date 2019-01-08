@@ -1,0 +1,53 @@
+/* CSS Document */
+
+.portfolioimg{
+	display: inline;
+	float: left;
+	align-content: center;
+	width: 100%;
+}
+.portfolioname{
+	text-align: center;
+	width: 100%;
+	display: inline;
+	float: left;
+	transform: translateY(250%);
+}
+.portfolioname ul{
+	width: 100%;
+	list-style: none;
+	list-style-image: none;
+}
+.portfolioname ul li{
+	display: inline;
+}
+.prev{
+	text-align: left;
+	display: inline;
+	float: left;
+	margin: auto;
+	transform: translateY(1000%);
+}
+.nxt{
+	text-align: right;
+	display: inline;
+	float: right;
+	margin: auto;
+	transform: translateY(1000%);
+}
+.typed-cursor {
+	display: none;
+}
+.portfolioname p{
+	font-family: 'Anton', sans-serif;
+	font-size: 1.5em;
+	color: #000000;
+	text-shadow:
+    -1px -1px 0 #91B5FF,
+    1px -1px 0 #91B5FF,
+    -1px 1px 0 #91B5FF,
+    1px 1px 0 #91B5FF;
+}
+.child img{
+	border-radius: 10%;
+}
