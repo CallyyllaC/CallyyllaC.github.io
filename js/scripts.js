@@ -63,6 +63,7 @@ $(function () {
 				/* open card item */
 				menu_item.addClass('active');
 				container.addClass('opened');
+				$(card_items).removeClass('active');
 				container.find(card_item).removeClass('animated '+animation_out);
 				container.find(card_item).addClass('animated '+animation_in);
 				
@@ -161,29 +162,6 @@ $(function () {
 		$('.top-menu a[href="#contacts-card"]').trigger('click');
 	});
 	
-	
-	/*
-		Initialize Portfolio
-	*/
-	var $container = $('.grid-items');
-	$container.imagesLoaded(function() {
-		$container.isotope({
-			percentPosition: true,
-			itemSelector: '.grid-item'
-		});
-	});
-
-
-	/*
-		Filter items on button click
-	*/
-	$('.filter-button-group').on( 'click', '.f_btn', function() {
-		var filterValue = $(this).find('input').val();
-		$container.isotope({ filter: '.'+filterValue });
-		$('.filter-button-group .f_btn').removeClass('active');
-		$(this).addClass('active');
-	});
-
 	
 	/*
 		Gallery popup
