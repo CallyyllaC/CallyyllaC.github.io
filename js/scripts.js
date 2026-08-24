@@ -79,7 +79,12 @@ $(function () {
 			/* scroll to section */
 			$('body,html').animate({
 				scrollTop: h - 76
-			}, 800);
+			}, 800, function() {
+				setTimeout(function() {
+					menu_items.removeClass('active');
+					menu_item.addClass('active');
+				}, 0);
+			});
 		}
 		return false;
 	});
@@ -103,7 +108,7 @@ $(function () {
 				$('.top-menu ul li a').each(function () {
 					var currLink = $(this);
 					var refElement = $(currLink.attr("href"));
-					if (refElement.offset().top - 76 <= scrollPos) {
+					if (refElement.offset().top - 76 <= scrollPos + 2) {
 						$('.top-menu ul li').removeClass("active");
 						currLink.closest('li').addClass("active");
 					}
@@ -134,7 +139,7 @@ $(function () {
 			$('.top-menu ul li a').each(function () {
 				var currLink = $(this);
 				var refElement = $(currLink.attr("href"));
-				if (refElement.offset().top - 76 <= scrollPos) {
+			if (refElement.offset().top - 76 <= scrollPos + 2) {
 					$('.top-menu ul li').removeClass("active");
 					currLink.closest('li').addClass("active");
 				}

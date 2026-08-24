@@ -24,7 +24,11 @@
 		}
 
 		if (project.image.src) {
-			return '<div class="project-image"><img src="' + escapeHtml(project.image.src) + '" alt="' + escapeHtml(project.image.alt) + '" width="1600" height="900" loading="lazy"></div>';
+			var fitClass = project.image.fit === 'contain' ? ' project-image--contain' : '';
+			var positionClass = project.image.position === 'right' ? ' project-image--focus-right' : '';
+			var width = Number(project.image.width) || 1600;
+			var height = Number(project.image.height) || 900;
+			return '<div class="project-image' + fitClass + positionClass + '"><img src="' + escapeHtml(project.image.src) + '" alt="' + escapeHtml(project.image.alt) + '" width="' + width + '" height="' + height + '" loading="lazy"></div>';
 		}
 
 		return '<div class="project-image project-image--placeholder" role="img" aria-label="' + escapeHtml(project.image.alt) + '">' +

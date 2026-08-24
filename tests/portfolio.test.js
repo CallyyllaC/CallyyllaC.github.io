@@ -64,26 +64,43 @@ test('Noctaxis is the flagship and Leap Motion precedes EndlessModding', () => {
 	assert.equal(selected[0].prominent, true);
 });
 
-test('major projects retain data-driven image placeholders with meaningful labels', () => {
-	const majorProjectIds = [
-		'noctaxis',
-		'ember-deck',
-		'desktop-shrine',
-		'leapmotion-telemanipulation',
-		'endless-modding'
-	];
+test('only Noctaxis retains the intentional data-driven image placeholder', () => {
+	const projectsWithImages = data.projects.filter((project) => project.image);
+	const placeholders = projectsWithImages.filter((project) => !project.image.src);
 
-	for (const id of majorProjectIds) {
+	assert.deepEqual(placeholders.map((project) => project.id), ['noctaxis']);
+	assert.match(placeholders[0].image.alt, /future Noctaxis planning interface screenshot/i);
+	assert.equal(placeholders[0].image.placeholder, 'Project Image Coming Soon');
+
+	const html = projectsWithImages.map(portfolio.renderProjectCard).join('');
+	assert.equal((html.match(/project-image--placeholder/g) || []).length, 1);
+	assert.equal((html.match(/Project Image Coming Soon/g) || []).length, 1);
+	assert.match(html, /Flagship project/i);
+	assert.match(html, /IN DEVELOPMENT/);
+});
+
+test('four project cards render local images with dimensions, useful alt text and intentional fit treatments', () => {
+	const expectedImages = {
+		'ember-deck': ['images/projects/ember-deck.jpg', 'project-image--contain'],
+		'desktop-shrine': ['images/projects/desktop-shrine.webp', 'project-image--focus-right'],
+		'leapmotion-telemanipulation': ['images/projects/leap-motion-telemanipulation.webp', null],
+		'endless-modding': ['images/projects/endless-modding.webp', 'project-image--contain']
+	};
+
+	for (const [id, [src, treatmentClass]] of Object.entries(expectedImages)) {
 		const project = data.projects.find((candidate) => candidate.id === id);
-		assert.ok(project.image, `${id} is missing image metadata`);
-		assert.equal(project.image.src, null);
-		assert.match(project.image.alt, /Placeholder for a future/i);
-		assert.equal(project.image.placeholder, 'Project Image Coming Soon');
+		assert.equal(project.image.src, src);
+		assert.ok(project.image.alt.length > 20, `${id} needs useful alt text`);
+		assert.ok(project.image.width > 0 && project.image.height > 0, `${id} needs intrinsic dimensions`);
 
 		const html = portfolio.renderProjectCard(project);
-		assert.match(html, /project-image--placeholder/);
-		assert.match(html, /Project Image Coming Soon/);
-		assert.match(html, new RegExp(`aria-label="${project.image.alt}"`));
+		assert.match(html, new RegExp(`src="${src.replaceAll('/', '\\/')}"`));
+		assert.match(html, new RegExp(`alt="${project.image.alt}"`));
+		assert.match(html, new RegExp(`width="${project.image.width}" height="${project.image.height}"`));
+		assert.doesNotMatch(html, /project-image--placeholder/);
+		if (treatmentClass) {
+			assert.match(html, new RegExp(treatmentClass));
+		}
 	}
 });
 

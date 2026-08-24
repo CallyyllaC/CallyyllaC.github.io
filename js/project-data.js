@@ -27,9 +27,11 @@
 			description: 'An end-to-end physical-computing project that restores a vintage Hitachi TV, radio and cassette unit as a Raspberry Pi 5 media console while retaining original controls where practical. Custom Linux and Python software uses supervised worker processes and shared state to monitor health, restart unhealthy workers, coordinate Plexamp, Bluetooth and MPRIS playback, centralise hardware ownership, and drive multiple displays, analogue and digital indicators and RGBW audio visualisation. The build also spans low-voltage power distribution, fused branches, voltage conversion, GPIO, I2C, ADC and LED peripherals, and custom audio hardware.',
 			technologies: ['Python', 'Raspberry Pi 5', 'Linux', 'Supervised processes', 'Electronics', 'GPIO / I2C', 'Media integration', 'Audio visualisation', 'Physical computing'],
 			image: {
-				src: null,
-				alt: 'Placeholder for a future photograph of The Ember Deck restored media console',
-				placeholder: 'Project Image Coming Soon'
+				src: 'images/projects/ember-deck.jpg',
+				alt: 'The restored Ember Deck Hitachi media console with waveform visualisation on its built-in display',
+				width: 1800,
+				height: 680,
+				fit: 'contain'
 			},
 			repository: 'https://github.com/CallyyllaC/The-Ember-Deck'
 		},
@@ -42,9 +44,11 @@
 			description: 'A modular .NET 10 Windows desktop runtime that turns media, audio and hardware activity into configurable ambient output. Its plugin architecture integrates Windows media and Steam, desktop audio analysis, CPU and GPU telemetry, artwork colour extraction and priority-based routing to GOverlay LCD and BlinkStick RGBW devices. The project also covers installer and release engineering for a deployable desktop product.',
 			technologies: ['C#', '.NET 10', 'Windows', 'Plugin architecture', 'Media integration', 'Audio analysis', 'Hardware telemetry', 'GOverlay', 'BlinkStick'],
 			image: {
-				src: null,
-				alt: 'Placeholder for a future Desktop Shrine runtime screenshot',
-				placeholder: 'Project Image Coming Soon'
+				src: 'images/projects/desktop-shrine.webp',
+				alt: 'Desktop Shrine hardware telemetry rendered on a GOverlay display beside ambient lighting',
+				width: 1800,
+				height: 613,
+				position: 'right'
 			},
 			repository: 'https://github.com/CallyyllaC/Desktop-Shrine',
 			releases: 'https://github.com/CallyyllaC/Desktop-Shrine/releases'
@@ -59,9 +63,10 @@
 			description: 'A robotics telemanipulation system completed as third-year and dissertation work, using single- and dual-Leap-Motion hand tracking to control a simulated Franka Panda arm through ROS, MoveIt and custom C++ and Python nodes and messages. It translated gestures and tracked hand coordinates into constrained robot-workspace movement and gripper control. Because the available Linux Leap Motion support was obsolete and problematic, the input and Ubuntu/ROS environments were separated through a networked-systems workaround rather than abandoning the intended architecture.',
 			technologies: ['C++', 'Python', 'Ubuntu', 'ROS', 'MoveIt', 'Leap Motion', 'Coordinate transforms', 'Networked systems'],
 			image: {
-				src: null,
-				alt: 'Placeholder for a future Leap Motion telemanipulation demonstration image',
-				placeholder: 'Project Image Coming Soon'
+				src: 'images/projects/leap-motion-telemanipulation.webp',
+				alt: 'RViz telemanipulation demo showing tracked hands and a simulated Franka Panda robot arm',
+				width: 1600,
+				height: 900
 			},
 			repository: 'https://github.com/CallyyllaC/LeapMotion-Telemanipulation'
 		},
@@ -74,9 +79,11 @@
 			description: 'An early post-graduate C# desktop project that reworked and expanded the original Endless Space 2 hero designer into a broader toolset for creating and managing custom game content. It was an important step in learning desktop-development techniques later used professionally.',
 			technologies: ['C#', '.NET', 'Desktop UI', 'Game modding'],
 			image: {
-				src: null,
-				alt: 'Placeholder for a future EndlessModding desktop interface screenshot',
-				placeholder: 'Project Image Coming Soon'
+				src: 'images/projects/endless-modding.webp',
+				alt: 'EndlessModding blue space artwork and logo',
+				width: 1080,
+				height: 1080,
+				fit: 'contain'
 			},
 			repository: 'https://github.com/CallyyllaC/EndlessModding'
 		},
