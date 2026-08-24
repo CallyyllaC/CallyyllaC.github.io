@@ -174,6 +174,5 @@
 
 	if (typeof document !== 'undefined') {
 		renderRecentWork(document, global.RecentWorkData);
-		initialiseRecentWorkHash(global, document);
 	}
 }(typeof window !== 'undefined' ? window : globalThis));

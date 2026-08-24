@@ -7,23 +7,26 @@
  */
 
 :root {
-	--theme-page: #17131c;
-	--theme-surface: #211b27;
-	--theme-surface-raised: #2a222f;
-	--theme-surface-deep: #1b1620;
-	--theme-accent: #c8794a;
-	--theme-accent-hover: #da8a58;
-	--theme-accent-secondary: #8d6a91;
-	--theme-text: #eee9e3;
-	--theme-text-muted: #aaa3ad;
-	--theme-border: #3b303f;
-	--theme-overlay: rgba(15, 11, 18, 0.72);
-	--theme-accent-soft: rgba(200, 121, 74, 0.14);
-	--theme-accent-glow: rgba(200, 121, 74, 0.3);
-	--theme-mauve-soft: rgba(141, 106, 145, 0.18);
-	--theme-shadow: rgba(15, 11, 18, 0.42);
-	--theme-focus: #da8a58;
-	--theme-on-accent: #17131c;
+	--theme-page: #14121a;
+	--theme-surface: #201a25;
+	--theme-surface-raised: #29212e;
+	--theme-surface-deep: #19151f;
+	--theme-accent: #cf7848;
+	--theme-accent-hover: #df8c59;
+	--theme-accent-secondary: #96748f;
+	--theme-text: #f0ebe7;
+	--theme-text-muted: #b2a8b3;
+	--theme-border: #433544;
+	--theme-background-wash: linear-gradient(135deg, rgba(18, 15, 27, 0.34), rgba(31, 22, 37, 0.24));
+	--theme-vignette: radial-gradient(ellipse at center, rgba(12, 8, 15, 0.06) 18%, rgba(12, 8, 15, 0.3) 68%, rgba(8, 5, 10, 0.72) 100%);
+	--theme-accent-soft: rgba(207, 120, 72, 0.14);
+	--theme-accent-glow: rgba(207, 120, 72, 0.3);
+	--theme-accent-transparent: rgba(207, 120, 72, 0.01);
+	--theme-mauve-soft: rgba(150, 116, 143, 0.18);
+	--theme-border-transparent: rgba(67, 53, 68, 0);
+	--theme-shadow: rgba(10, 8, 15, 0.46);
+	--theme-focus: #df8c59;
+	--theme-on-accent: #14121a;
 	--theme-error: #c8787b;
 }
 
@@ -42,13 +45,25 @@ button {
 
 .background {
 	background-color: var(--theme-page);
+	background-position: 50% 58%;
+	pointer-events: none;
+	z-index: 0;
 }
 
+.background::before,
 .background::after {
 	content: '';
 	position: absolute;
 	inset: 0;
-	background: var(--theme-overlay);
+	pointer-events: none;
+}
+
+.background::before {
+	background: var(--theme-background-wash);
+}
+
+.background::after {
+	background: var(--theme-vignette);
 }
 
 .preloader {
@@ -198,7 +213,7 @@ a:focus,
 .card-started .profile .image::before,
 .content .title::before,
 .box-item .image .info::before {
-	background: linear-gradient(135deg, var(--theme-accent-glow) 0%, rgba(200, 121, 74, 0.01) 100%);
+	background: linear-gradient(135deg, var(--theme-accent-glow) 0%, var(--theme-accent-transparent) 100%);
 }
 
 .background.gradient {
@@ -217,7 +232,7 @@ a:focus,
 .skills-list ul li::before,
 .pricing-items .pricing-item::before,
 .fuct-items .fuct-item::before {
-	background: radial-gradient(ellipse at center, var(--theme-border) 0%, rgba(59, 48, 63, 0) 70%);
+	background: radial-gradient(ellipse at center, var(--theme-border) 0%, var(--theme-border-transparent) 70%);
 }
 
 .new-skin .service-items .service-item .icon {
@@ -227,7 +242,7 @@ a:focus,
 
 .service-items .service-item .icon {
 	color: var(--theme-accent);
-	background: linear-gradient(135deg, var(--theme-accent-glow) 0%, rgba(200, 121, 74, 0.01) 100%);
+	background: linear-gradient(135deg, var(--theme-accent-glow) 0%, var(--theme-accent-transparent) 100%);
 }
 
 .new-skin .info-list ul li strong {

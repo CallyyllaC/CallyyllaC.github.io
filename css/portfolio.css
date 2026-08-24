@@ -5,6 +5,10 @@ body {
 	max-width: 100%;
 }
 
+.new-skin .container {
+	z-index: 1;
+}
+
 .skip-link {
 	position: fixed;
 	top: 10px;
@@ -70,6 +74,22 @@ body {
 }
 
 @media (min-width: 1200px) {
+	.new-skin .container {
+		--profile-card-width: clamp(480px, 27vw, 520px);
+		width: min(calc(100vw - clamp(64px, 12vw, 240px)), 1440px);
+		max-width: 1440px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.new-skin .card-started {
+		width: var(--profile-card-width);
+	}
+
+	.new-skin .card-inner {
+		left: calc(var(--profile-card-width) + 80px);
+	}
+
 	.content.about .row .col.col-d-7 {
 		width: 46%;
 		padding-right: 20px;
@@ -671,7 +691,47 @@ body {
 	color: var(--theme-accent);
 }
 
+.content.contacts .contact-list ul {
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background: var(--theme-surface-raised);
+	border: 1px solid var(--theme-border);
+	border-radius: 8px;
+}
+
+.content.contacts .contact-list ul li {
+	display: grid;
+	width: 100%;
+	grid-template-columns: minmax(128px, 148px) minmax(0, 1fr);
+	gap: 24px;
+	min-height: 64px;
+	margin: 0;
+	padding: 16px 20px;
+	align-items: center;
+	background: var(--theme-surface-raised);
+}
+
+.content.contacts .contact-list ul li + li {
+	border-top: 1px solid var(--theme-border);
+}
+
+.content.contacts .contact-list ul li::before {
+	display: none;
+}
+
+.new-skin .contact-list ul li strong {
+	padding: 0;
+	color: var(--theme-accent-hover);
+	background: transparent;
+	font-size: 11px;
+	font-weight: 600;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
 .contact-list a {
+	justify-self: start;
 	word-break: break-word;
 	text-decoration: underline;
 	text-decoration-thickness: 1px;
@@ -705,7 +765,7 @@ summary:focus-visible {
 	}
 
 	.about .info-list ul li,
-	.contact-list ul li {
+	.content.contacts .contact-list ul li {
 		grid-template-columns: 1fr;
 		gap: 2px;
 	}

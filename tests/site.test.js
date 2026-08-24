@@ -40,16 +40,22 @@ test('the static entry point references only existing local assets', () => {
 	}
 });
 
-test('the profile panel uses the local decorative night-sky image without changing the page background', () => {
+test('the page background and profile panel use their separate local photographs', () => {
+	const backgroundImagePath = path.join(root, 'images', 'background-sunset.webp');
+	const backgroundImage = fs.readFileSync(backgroundImagePath);
 	const profileImagePath = path.join(root, 'images', 'profile-night-sky.webp');
 	const profileImage = fs.readFileSync(profileImagePath);
 
-	assert.match(index, /<div class="background" style="background-image: url\(images\/bg\.jpg\);" aria-hidden="true"><\/div>/);
+	assert.match(index, /<link rel="preload" href="images\/background-sunset\.webp" as="image" type="image\/webp" \/>/);
+	assert.match(index, /<div class="background" style="background-image: url\(images\/background-sunset\.webp\);" aria-hidden="true"><\/div>/);
+	assert.doesNotMatch(index, /images\/bg\.jpg/);
 	assert.match(index, /<div class="slide" style="background-image: url\(images\/profile-night-sky\.webp\);" aria-hidden="true"><\/div>/);
-	assert.equal((index.match(/background-image: url\(images\/bg\.jpg\)/g) || []).length, 1);
 	assert.match(index, /<img src="images\/profile\.png\?v=20260814" alt="Portrait of Callum Dyson-Gainsborough" \/>/);
 	assert.match(legacyBlogPost, /<div class="slide" style="background-image: url\(images\/profile-night-sky\.webp\); background-position: 25% 62%;" aria-hidden="true"><\/div>/);
 	assert.doesNotMatch(legacyBlogPost, /background-image: url\(images\/bg\.jpg\)/);
+	assert.equal(backgroundImage.subarray(0, 4).toString(), 'RIFF');
+	assert.equal(backgroundImage.subarray(8, 12).toString(), 'WEBP');
+	assert.ok(backgroundImage.length < 500000, 'The sunset background is not web optimized');
 	assert.equal(profileImage.subarray(0, 4).toString(), 'RIFF');
 	assert.equal(profileImage.subarray(8, 12).toString(), 'WEBP');
 	assert.ok(profileImage.length < 500000, 'The profile night-sky image is not web optimized');
@@ -61,6 +67,8 @@ test('the site retains the GitHub Pages-compatible static architecture', () => {
 	assert.match(index, /<script src="js\/portfolio\.js"><\/script>/);
 	assert.match(index, /<script src="js\/recent-work-data\.js"><\/script>/);
 	assert.match(index, /<script src="js\/recent-work\.js"><\/script>/);
+	assert.match(index, /<script src="js\/section-navigation\.js"><\/script>/);
+	assert.ok(index.indexOf('js/section-navigation.js') < index.indexOf('js/scripts.js'));
 	assert.doesNotMatch(index, /github\.com\/api|api\.github\.com|fetch\s*\(/i);
 	assert.ok(fs.existsSync(path.join(root, 'files', 'CV_Callum Dyson-Gainsborough.pdf')));
 });
@@ -90,15 +98,16 @@ test('the midnight plum theme is centralised and loaded after the vendor styles'
 	);
 
 	const expectedVariables = {
-		'--theme-page': '#17131c',
-		'--theme-surface': '#211b27',
-		'--theme-surface-raised': '#2a222f',
-		'--theme-accent': '#c8794a',
-		'--theme-accent-hover': '#da8a58',
-		'--theme-accent-secondary': '#8d6a91',
-		'--theme-text': '#eee9e3',
-		'--theme-text-muted': '#aaa3ad',
-		'--theme-border': '#3b303f'
+		'--theme-page': '#14121a',
+		'--theme-surface': '#201a25',
+		'--theme-surface-raised': '#29212e',
+		'--theme-surface-deep': '#19151f',
+		'--theme-accent': '#cf7848',
+		'--theme-accent-hover': '#df8c59',
+		'--theme-accent-secondary': '#96748f',
+		'--theme-text': '#f0ebe7',
+		'--theme-text-muted': '#b2a8b3',
+		'--theme-border': '#433544'
 	};
 
 	for (const [name, value] of Object.entries(expectedVariables)) {
@@ -106,17 +115,20 @@ test('the midnight plum theme is centralised and loaded after the vendor styles'
 	}
 
 	assert.match(themeCss, /\.preloader \{\s*background: var\(--theme-page\);/);
-	assert.match(themeCss, /\.background::after \{[\s\S]*?background: var\(--theme-overlay\);/);
+	assert.match(themeCss, /\.background \{[\s\S]*?background-position: 50% 58%;[\s\S]*?pointer-events: none;/);
+	assert.match(themeCss, /\.background::before \{\s*background: var\(--theme-background-wash\);/);
+	assert.match(themeCss, /\.background::after \{\s*background: var\(--theme-vignette\);/);
+	assert.match(themeCss, /--theme-vignette: radial-gradient\(ellipse at center,/);
 	assert.doesNotMatch(themeCss + portfolioCss, /#78cc6d|rgba\(120,\s*204,\s*109/i);
 });
 
 test('core theme colour pairs meet WCAG AA contrast for normal text', () => {
 	const pairs = [
-		['main text on panels', '#eee9e3', '#211b27'],
-		['muted text on panels', '#aaa3ad', '#211b27'],
-		['ember links on panels', '#c8794a', '#211b27'],
-		['dark text on ember controls', '#17131c', '#c8794a'],
-		['dark text on ember hover controls', '#17131c', '#da8a58']
+		['main text on panels', '#f0ebe7', '#201a25'],
+		['muted text on panels', '#b2a8b3', '#201a25'],
+		['ember links on panels', '#cf7848', '#201a25'],
+		['dark text on ember controls', '#14121a', '#cf7848'],
+		['dark text on ember hover controls', '#14121a', '#df8c59']
 	];
 
 	for (const [label, foreground, background] of pairs) {
@@ -149,9 +161,12 @@ test('all data-driven project images resolve to local portfolio assets', () => {
 
 test('public contact details use LinkedIn without exposing an email address', () => {
 	assert.doesNotMatch(index, /cgainsborough@pm\.me|mailto:/i);
+	const contactList = index.match(/<div class="info-list contact-list">([\s\S]*?)<\/div>/)[1];
+	assert.equal((contactList.match(/<li>/g) || []).length, 3);
+	assert.match(contactList, /<strong>Location<\/strong> Lincolnshire, UK/);
 	assert.match(index, /<strong>LinkedIn<\/strong> <a href="https:\/\/www\.linkedin\.com\/in\/callum-d-03168515b\/">Message me on LinkedIn<\/a>/);
-	assert.match(index, /<strong>Location<\/strong> United Kingdom/);
-	assert.match(index, /<strong>GitHub<\/strong>/);
+	assert.match(index, /<strong>GitHub<\/strong> <a href="https:\/\/github\.com\/CallyyllaC\/">github\.com\/CallyyllaC<\/a>/);
+	assert.match(portfolioCss, /\.contact-list ul li \{[\s\S]*?grid-template-columns: minmax\(128px, 148px\) minmax\(0, 1fr\);[\s\S]*?min-height: 64px;/);
 });
 
 test('the downloadable CV is the current complete PDF', () => {
@@ -184,7 +199,21 @@ test('the page has a single primary heading and ordered section headings', () =>
 test('technical skills use the requested SVN and plugin-system wording', () => {
 	assert.match(index, /<li>SVN<\/li>/);
 	assert.doesNotMatch(index, /<li>Git<\/li>/);
-	assert.match(index, /<li>plugin based modular systems<\/li>/);
+	assert.match(index, /<li>plugin-based modular systems<\/li>/);
+	assert.doesNotMatch(index, /plugin based modular systems/);
+});
+
+test('desktop expansion is fluid while the established narrow breakpoints remain intact', () => {
+	assert.match(portfolioCss, /@media \(min-width: 1200px\) \{[\s\S]*?width: min\(calc\(100vw - clamp\(64px, 12vw, 240px\)\), 1440px\);/);
+	assert.match(portfolioCss, /--profile-card-width: clamp\(480px, 27vw, 520px\);/);
+	assert.match(portfolioCss, /left: calc\(var\(--profile-card-width\) \+ 80px\);/);
+	assert.match(portfolioCss, /@media \(max-width: 560px\) \{[\s\S]*?\.card-inner \.card-wrap \{\s*padding: 24px 18px;/);
+});
+
+test('resume wording is corrected without changing the EndlessModding description', () => {
+	assert.match(index, /<div class="date">CURRENT FOCUS<\/div>/);
+	assert.doesNotMatch(index, /<div class="date">RECENT WORK<\/div>/);
+	assert.match(projectData.projects.find((project) => project.id === 'endless-modding').description, /early post-graduate C# desktop project/);
 });
 
 test('the early-work archive is a direct accessible GitHub repositories link', () => {

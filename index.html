@@ -8,6 +8,7 @@
 	<meta name="description" content="Portfolio of Callum Dyson-Gainsborough, a UK software developer working across .NET desktop software, hardware integration and data-driven systems." />
 	<meta name="keywords" content="Callum Dyson-Gainsborough, software developer, C#, .NET, Python, Avalonia, Raspberry Pi, portfolio, UK" />
 	<meta name="author" content="Callum Dyson-Gainsborough" />
+	<link rel="preload" href="images/background-sunset.webp" as="image" type="image/webp" />
 
 	<link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.0/css/all.css" />
@@ -38,14 +39,14 @@
 			</div>
 		</div>
 
-		<div class="background" style="background-image: url(images/bg.jpg);" aria-hidden="true"></div>
+		<div class="background" style="background-image: url(images/background-sunset.webp);" aria-hidden="true"></div>
 
 		<main class="container opened" data-animation-in="fadeInLeft" data-animation-out="fadeOutLeft">
 			<header class="header">
 				<nav class="top-menu" aria-label="Portfolio sections">
 					<ul>
 						<li class="active">
-							<a href="#about-card"><span class="icon ion-person" aria-hidden="true"></span><span class="link">About</span></a>
+							<a href="#about-card" aria-current="page"><span class="icon ion-person" aria-hidden="true"></span><span class="link">About</span></a>
 						</li>
 						<li>
 							<a href="#resume-card"><span class="icon ion-android-list" aria-hidden="true"></span><span class="link">Resume</span></a>
@@ -142,7 +143,7 @@
 							<div class="col col-d-6 col-t-6 col-m-12 border-line-v">
 								<div class="resume-title border-line-h"><div class="icon"><i class="ion ion-code-working" aria-hidden="true"></i></div><h3 class="name">Engineering focus</h3></div>
 								<div class="resume-items">
-									<div class="resume-item border-line-h active"><div class="date">RECENT WORK</div><div class="name">Software and systems projects</div><p>Recent personal projects centre on .NET desktop applications, modular integrations, Raspberry Pi systems, hardware output and data-heavy planning tools.</p></div>
+									<div class="resume-item border-line-h active"><div class="date">CURRENT FOCUS</div><div class="name">Software and systems projects</div><p>Recent personal projects centre on .NET desktop applications, modular integrations, Raspberry Pi systems, hardware output and data-heavy planning tools.</p></div>
 								</div>
 							</div>
 							<div class="clear"></div>
@@ -153,7 +154,7 @@
 						<h2 class="title">Technical Skills</h2>
 						<div class="skills-groups">
 							<section class="skill-group"><h3><span class="ion ion-star" aria-hidden="true"></span> Primary</h3><ul><li>C#</li><li>.NET</li><li>Python</li><li>SVN</li><li>Linux</li><li>Windows</li></ul></section>
-							<section class="skill-group"><h3><span class="ion ion-monitor" aria-hidden="true"></span> Desktop / UI</h3><ul><li>Avalonia</li><li>Desktop application architecture</li><li>plugin based modular systems</li></ul></section>
+							<section class="skill-group"><h3><span class="ion ion-monitor" aria-hidden="true"></span> Desktop / UI</h3><ul><li>Avalonia</li><li>Desktop application architecture</li><li>plugin-based modular systems</li></ul></section>
 							<section class="skill-group"><h3><span class="ion ion-settings" aria-hidden="true"></span> Systems / Hardware</h3><ul><li>Raspberry Pi</li><li>Hardware integration</li><li>Telemetry</li><li>GPIO and device integration</li></ul></section>
 							<section class="skill-group"><h3><span class="ion ion-code" aria-hidden="true"></span> Supporting</h3><ul><li>JavaScript</li><li>HTML / CSS</li><li>SQL</li><li>APIs</li><li>Data processing</li><li>C++</li></ul></section>
 						</div>
@@ -215,7 +216,7 @@
 							<div class="col col-d-12 col-t-12 col-m-12 border-line-v">
 								<div class="info-list contact-list">
 									<ul>
-										<li><strong>Location</strong> United Kingdom</li>
+										<li><strong>Location</strong> Lincolnshire, UK</li>
 										<li><strong>LinkedIn</strong> <a href="https://www.linkedin.com/in/callum-d-03168515b/">Message me on LinkedIn</a></li>
 										<li><strong>GitHub</strong> <a href="https://github.com/CallyyllaC/">github.com/CallyyllaC</a></li>
 									</ul>
@@ -240,6 +241,7 @@
 	<script src="js/portfolio.js"></script>
 	<script src="js/recent-work-data.js"></script>
 	<script src="js/recent-work.js"></script>
+	<script src="js/section-navigation.js"></script>
 	<script src="js/scripts.js"></script>
 </body>
 </html>
