@@ -41,6 +41,42 @@
 						url: 'https://github.com/CallyyllaC/CallyyllaC.github.io'
 					}
 				]
+			},
+			{
+				id: '2026-h1',
+				type: 'half-year',
+				year: 2026,
+				half: 1,
+				label: 'Early 2026',
+				points: [
+					'Reworked The Ember Deck from a working Raspberry Pi media prototype into a modular system with supervised worker processes, shared state, health monitoring and automatic recovery.',
+					'Developed its multi-display interface layouts and diagnostics around playback metadata, lyrics, system state, audio visualisation and process heartbeats.'
+				],
+				projectIds: ['ember-deck'],
+				links: [
+					{
+						label: 'The Ember Deck source',
+						url: 'https://github.com/CallyyllaC/The-Ember-Deck'
+					}
+				]
+			},
+			{
+				id: '2025',
+				type: 'year',
+				year: 2025,
+				label: '2025',
+				points: [
+					'Started The Ember Deck by restoring a vintage Hitachi TV, radio and cassette unit around a Raspberry Pi 5, establishing headless Plexamp playback, Bluetooth audio, a USB DAC and the first hardware prototype.',
+					'Expanded the build toward physical controls and an RGBW audio visualiser while documenting the restoration, Linux setup and electronics as a practical build log.',
+					'Built a searchable Google Sheets and Apps Script serial-number lookup for a friend\'s historical collecting website, turning a structured archive into a simple public-facing research tool.'
+				],
+				projectIds: ['ember-deck'],
+				links: [
+					{
+						label: 'The Ember Deck source',
+						url: 'https://github.com/CallyyllaC/The-Ember-Deck'
+					}
+				]
 			}
 		]
 	};
