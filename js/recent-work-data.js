@@ -43,6 +43,29 @@
 				]
 			},
 			{
+				id: '2026-07',
+				type: 'month',
+				year: 2026,
+				month: 7,
+				label: 'July 2026',
+				points: [
+					'Completed The Ember Deck V1 after roughly nine months of hardware and software work, finishing the restored media console, physical controls, dual displays, 2.1 audio system and serviceable internal wiring.',
+					'Refined its playback routing, process supervision, status indicators and album-art-driven RGBW visualisation into a coherent finished system.',
+					'Began Fox Shrine, an ambient Windows display and lighting experiment that evolved into Desktop Shrine.'
+				],
+				projectIds: ['ember-deck', 'desktop-shrine'],
+				links: [
+					{
+						label: 'The Ember Deck source',
+						url: 'https://github.com/CallyyllaC/The-Ember-Deck'
+					},
+					{
+						label: 'Desktop Shrine source',
+						url: 'https://github.com/CallyyllaC/Desktop-Shrine'
+					}
+				]
+			},
+			{
 				id: '2026-h1',
 				type: 'half-year',
 				year: 2026,
@@ -50,7 +73,10 @@
 				label: 'Early 2026',
 				points: [
 					'Reworked The Ember Deck from a working Raspberry Pi media prototype into a modular system with supervised worker processes, shared state, health monitoring and automatic recovery.',
-					'Developed its multi-display interface layouts and diagnostics around playback metadata, lyrics, system state, audio visualisation and process heartbeats.'
+					'Developed its multi-display interface, playback routing, physical-control integration and diagnostics around media metadata, lyrics, system state, audio visualisation and process heartbeats.',
+					'Built a Raspberry Pi car telemetry prototype around OBD data and a connected dashboard display, moving from Bluetooth experimentation to a wired USB adapter for more dependable long-term logging.',
+					'Prototyped a compact Pi Zero 2 dashboard enclosure and mounting arrangement, iterating after the first resin case proved too deep, cracked and too heavy when fitted with a Pi 3.',
+					'Defined a conservative in-car power and cabling approach using an existing 12 V USB supply, separate from the dashcam, with the eventual aim of integrating a cloned Diagbox interface.'
 				],
 				projectIds: ['ember-deck'],
 				links: [
