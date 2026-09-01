@@ -26,11 +26,11 @@
 				month: 8,
 				label: 'August 2026',
 				points: [
-					'Reached the Desktop Shrine 2.0 Alpha milestone with revised lighting controls, live configuration and a new desktop settings and Quick Access experience.',
-					'Advanced Noctaxis camera field-of-view planning and terrain-aware visibility, with environmental overlays and clearer planner feedback.',
-					'Refreshed this portfolio, the GitHub profile and project documentation with clearer project curation, local imagery and updated public context.'
+					'Released Desktop Shrine 2.0 Alpha, evolving the original ambient display into a fuller desktop lighting system with live configuration, redesigned settings and a Quick Access experience.',
+					'Improved Desktop Shrine reliability with steadier GOverlay updates, a compatibility-focused rectangle renderer and a fix for installer-created autostart tasks.',
+					'Rebuilt this portfolio around clearer project curation, a dedicated Recent Work timeline, local imagery and updated public documentation.'
 				],
-				projectIds: ['desktop-shrine', 'noctaxis'],
+				projectIds: ['desktop-shrine'],
 				links: [
 					{
 						label: 'Desktop Shrine source',
