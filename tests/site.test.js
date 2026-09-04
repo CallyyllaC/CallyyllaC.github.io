@@ -70,7 +70,24 @@ test('the site retains the GitHub Pages-compatible static architecture', () => {
 	assert.match(index, /<script src="js\/section-navigation\.js"><\/script>/);
 	assert.ok(index.indexOf('js/section-navigation.js') < index.indexOf('js/scripts.js'));
 	assert.doesNotMatch(index, /github\.com\/api|api\.github\.com|fetch\s*\(/i);
-	assert.ok(fs.existsSync(path.join(root, 'files', 'CV_Callum Dyson-Gainsborough.pdf')));
+	assert.ok(fs.existsSync(path.join(root, 'files', 'Callum-Dyson-Gainsborough-CV.pdf')));
+	assert.equal(fs.existsSync(path.join(root, 'files', 'CV_Callum Dyson-Gainsborough.pdf')), false, 'The old indexed CV filename should stay removed');
+});
+
+test('search and social metadata use the canonical engineering identity', () => {
+	assert.match(index, /<title>Callum Dyson-Gainsborough \| \.NET Software Engineer<\/title>/);
+	assert.match(index, /<link rel="canonical" href="https:\/\/callyyllac\.github\.io\/" \/>/);
+	assert.match(index, /property="og:title" content="Callum Dyson-Gainsborough \| \.NET Software Engineer"/);
+	assert.match(index, /property="og:image" content="https:\/\/callyyllac\.github\.io\/images\/social-preview\.png"/);
+	assert.match(index, /name="twitter:card" content="summary_large_image"/);
+	assert.ok(fs.existsSync(path.join(root, 'images', 'social-preview.png')));
+});
+
+test('project and Recent Work content is prerendered for non-JavaScript crawlers', () => {
+	assert.match(index, /<!-- prerender:featured:start -->[\s\S]*?data-project-id="noctaxis"[\s\S]*?<!-- prerender:featured:end -->/);
+	assert.match(index, /<!-- prerender:selected:start -->[\s\S]*?data-project-id="leapmotion-telemanipulation"[\s\S]*?<!-- prerender:selected:end -->/);
+	assert.match(index, /<!-- prerender:recent-work:start -->[\s\S]*?data-recent-work-id="2026-08"[\s\S]*?data-recent-work-id="2025"[\s\S]*?<!-- prerender:recent-work:end -->/);
+	assert.ok(fs.existsSync(path.join(root, 'scripts', 'prerender-content.js')));
 });
 
 test('Recent Work navigation and legacy anchors target the data-driven section', () => {
@@ -78,7 +95,7 @@ test('Recent Work navigation and legacy anchors target the data-driven section',
 	assert.match(index, /<section class="card-inner blog" id="recent-work-card"[^>]*aria-labelledby="recent-work-heading"/);
 	assert.match(index, /id="updates" aria-hidden="true"/);
 	assert.match(index, /id="blog-card" aria-hidden="true"/);
-	assert.match(index, /<ol class="recent-work-timeline" id="recent-work-timeline" aria-label="Recent development highlights"><\/ol>/);
+	assert.match(index, /<ol class="recent-work-timeline" id="recent-work-timeline" aria-label="Recent development highlights">[\s\S]*?data-recent-work-id="2026-08"[\s\S]*?<\/ol>/);
 	assert.doesNotMatch(index, /<span class="link">Updates<\/span>/);
 });
 
@@ -170,7 +187,7 @@ test('public contact details use LinkedIn without exposing an email address', ()
 });
 
 test('the downloadable CV is the current complete PDF', () => {
-	const cv = fs.readFileSync(path.join(root, 'files', 'CV_Callum Dyson-Gainsborough.pdf'));
+	const cv = fs.readFileSync(path.join(root, 'files', 'Callum-Dyson-Gainsborough-CV.pdf'));
 	assert.equal(cv.subarray(0, 5).toString(), '%PDF-');
 	assert.ok(cv.length > 50000, 'The current two-page public CV was not installed');
 });
@@ -196,11 +213,11 @@ test('the page has a single primary heading and ordered section headings', () =>
 	assert.match(index, /<h3 id="featured-heading">Featured \/ Current Work<\/h3>/);
 });
 
-test('technical skills use the requested SVN and plugin-system wording', () => {
-	assert.match(index, /<li>SVN<\/li>/);
-	assert.doesNotMatch(index, /<li>Git<\/li>/);
+test('technical skills foreground the strongest engineering stack without losing SVN or plugin-system context', () => {
+	assert.match(index, /Core Engineering<\/h3><ul><li>C#<\/li><li>\.NET \/ \.NET Framework<\/li><li>WPF \/ Avalonia<\/li><li>Python<\/li><li>C\+\+<\/li>/);
+	assert.match(index, /<li>GitHub \/ SVN<\/li>/);
 	assert.match(index, /<li>plugin-based modular systems<\/li>/);
-	assert.doesNotMatch(index, /plugin based modular systems/);
+	assert.match(index, /<li>Windows \/ Linux<\/li>/);
 });
 
 test('desktop expansion is fluid while the established narrow breakpoints remain intact', () => {
