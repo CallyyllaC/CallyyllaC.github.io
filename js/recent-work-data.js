@@ -20,6 +20,38 @@
 		supportedTypes: ['month', 'half-year', 'year'],
 		entries: [
 			{
+				id: '2026-09',
+				type: 'month',
+				year: 2026,
+				month: 9,
+				label: 'September 2026',
+				points: [
+					'Expanded Noctaxis into a terrain- and environment-aware planner, completing its initial horizon work and adding light-pollution data, camera-depth terrain overlays and accessible appearance controls.',
+					'Calibrated FoxDash against recorded journeys, centralising live and replay telemetry interpretation, confirmed DPF regeneration handling and an observation-only driving-regime model with repeatable offline evaluation.',
+					'Shipped Awoo.ltd\'s supporter and Echoes systems with signed supporter codes, community submissions, moderation, rate limits, caching and privacy-preserving identity handling.',
+					'Released The Ember Deck v1.1 with hardened worker supervision, deterministic media routing and fixes that preserve physical-control ownership across paused Plex and Bluetooth playback.'
+				],
+				projectIds: ['noctaxis', 'ember-deck'],
+				links: [
+					{
+						label: 'Noctaxis source',
+						url: 'https://github.com/CallyyllaC/Noctaxis'
+					},
+					{
+						label: 'FoxDash source',
+						url: 'https://github.com/CallyyllaC/FoxDash'
+					},
+					{
+						label: 'Awoo.ltd',
+						url: 'https://awoo.ltd/'
+					},
+					{
+						label: 'The Ember Deck source',
+						url: 'https://github.com/CallyyllaC/The-Ember-Deck'
+					}
+				]
+			},
+			{
 				id: '2026-08',
 				type: 'month',
 				year: 2026,
