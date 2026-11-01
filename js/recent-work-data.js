@@ -20,6 +20,38 @@
 		supportedTypes: ['month', 'half-year', 'year'],
 		entries: [
 			{
+				id: '2026-10',
+				type: 'month',
+				year: 2026,
+				month: 10,
+				label: 'October 2026',
+				points: [
+					'Published Noctaxis pre-alpha v0.2 after a measured performance pass that made catalogue search, terrain builds, startup and camera framing substantially faster.',
+					'Released The Ember Deck v2 with unattended Plex sign-in, per-device configuration overlays, stricter validation and more resilient worker supervision.',
+					'Made FoxDash adapt its dashboard palette and physical backlight to the ambient-light sensor, then calibrated the response for real tunnel and daylight conditions.',
+					'Expanded Awoo with repository-backed project roadmaps and licence metadata, a resumable Wayback archival queue, and richer software metadata for discovery.'
+				],
+				projectIds: ['noctaxis', 'ember-deck'],
+				links: [
+					{
+						label: 'Noctaxis source',
+						url: 'https://github.com/CallyyllaC/Noctaxis'
+					},
+					{
+						label: 'The Ember Deck source',
+						url: 'https://github.com/CallyyllaC/The-Ember-Deck'
+					},
+					{
+						label: 'FoxDash source',
+						url: 'https://github.com/CallyyllaC/FoxDash'
+					},
+					{
+						label: 'Awoo',
+						url: 'https://awoo.ltd/'
+					}
+				]
+			},
+			{
 				id: '2026-08',
 				type: 'month',
 				year: 2026,

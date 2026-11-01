@@ -43,13 +43,14 @@ test('Recent Work data uses the documented human-editable schema', () => {
 });
 
 test('Recent Work includes the current monthly snapshots and compacted history', () => {
-	assert.equal(data.entries.length, 4);
-	assert.deepEqual(data.entries.map((item) => item.id), ['2026-08', '2026-07', '2026-h1', '2025']);
+	assert.equal(data.entries.length, 5);
+	assert.deepEqual(data.entries.map((item) => item.id), ['2026-10', '2026-08', '2026-07', '2026-h1', '2025']);
 	assert.equal(data.entries[0].type, 'month');
-	assert.equal(data.entries[0].points.length, 3);
-	assert.match(data.entries[0].points.join(' '), /Desktop Shrine 2\.0 Alpha/);
-	assert.match(data.entries[0].points.join(' '), /Noctaxis camera field-of-view planning/);
-	assert.match(data.entries[0].points.join(' '), /portfolio, the GitHub profile and project documentation/);
+	assert.equal(data.entries[0].points.length, 4);
+	assert.match(data.entries[0].points.join(' '), /Noctaxis pre-alpha v0\.2/);
+	assert.match(data.entries[0].points.join(' '), /The Ember Deck v2/);
+	assert.match(data.entries[0].points.join(' '), /FoxDash/);
+	assert.match(data.entries[0].points.join(' '), /repository-backed project roadmaps/);
 	assert.ok(data.entries.some((item) => item.type === 'half-year'));
 	assert.ok(data.entries.some((item) => item.type === 'year'));
 });
@@ -125,7 +126,7 @@ test('the renderer populates the timeline container from data', () => {
 	};
 
 	assert.equal(recentWork.renderRecentWork(documentRef, data), data.entries.length);
-	assert.match(container.innerHTML, /data-recent-work-id="2026-08"/);
+	assert.match(container.innerHTML, /data-recent-work-id="2026-10"/);
 	assert.match(container.innerHTML, /data-recent-work-id="2025"/);
 	assert.match(container.innerHTML, /<article class="recent-work-card"/);
 });
